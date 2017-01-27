@@ -3,7 +3,6 @@
 #include <getopt.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include <string.h>
 
 void sigFoo(int signum)
 {

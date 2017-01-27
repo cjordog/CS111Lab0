@@ -1,0 +1,36 @@
+Name: Charles Ordog
+UID: 7046365527
+Professor: Eggert
+
+
+lab0.c:
+This file contains the source for my lab0 program. It copies bytes one by one 
+from standard input to standard output. This is in order to be able to read
+from stdin buffers that are not static, since we don't know the size of the 
+buffer initially. It uses getopt_long in order to read the long options from
+the command line, --input=file, --output=file, --segfault, and --catch. If a
+file is specified for the input or output options, input/output redirection is
+done by closing the corresponding file file descriptor and reopening a new one.
+A segfault is caused when asked by attempting to store at a null pointer.
+
+Makefile:
+Builds the executable for lab0 with make. Make clean restores the directory to 
+it's untar-ed contents. make check tests the executable against a collection 
+of test cases. Test cases include seeing if the program catches that it is
+trying to write an unwritable file (NoWriteTest), seeing if the program catches
+that it is trying to read from an unreadable file (NoReadTest), seeing if basic
+input and output work as expected (IOTest), seeing if the catch command catches
+the segfault properly (catchTest), and seeing if an input file is specified,
+if the output file is the same as the input file (diffTest). make dist 
+packages the sepcified tarball.
+
+README:
+explains the contents of the directories files.
+
+nullptr.png:
+shows the breakpoint stop before the segfault and inspection of the nullptr
+to show that it is in fact null
+
+backtrace.png:
+screenshot showing the segfault that occurs in gdb and then the corresponding
+backtrace to show the cause of the segfault
